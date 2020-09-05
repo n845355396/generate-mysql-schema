@@ -1,8 +1,8 @@
 {
-  "name": "generate/mysql/schema",
+  "name": "lpc/generate-mysql-schema",
   "description": "一个能通过PHP代码控制数据库表结构的包",
   "license": "MIT",
-  "keywords": ["mysql schema sync"],
+  "keywords": ["mysql","schema","sync"],
   "version": "1.0.0",
   "authors": [
     {
