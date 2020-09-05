@@ -1,0 +1,21 @@
+{
+  "name": "generate/mysql/schema",
+  "description": "一个能通过PHP代码控制数据库表结构的包",
+  "license": "MIT",
+  "keywords": ["mysql schema sync"],
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "lpc",
+      "email": "845355396@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "autoload": {
+    "psr-4" : {
+      "GenerateMysqlSchema\\": "src/generateMysqlSchema/"
+    }
+  }
+}
