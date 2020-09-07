@@ -1,5 +1,6 @@
+![下载.jpg](https://upload-images.jianshu.io/upload_images/13747484-2fdee88a0deb24dd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 # generate-mysql-schema
-
+```
 #### 介绍
 2020/9/5：
 每次写些自己的东西时候总是遇到表要加新字段，然后就很麻烦要本地改完后再去自己服务器整一遍。
@@ -16,20 +17,23 @@
 1. 项目里运行: composer require lpc/generate-mysql-schema dev-master
 2. git地址：[https://gitee.com/lpccc/generate-mysql-schema]
 
+```
+####我的目录结构：就这样!!!
+
+![微信截图_20200907173729.png](https://upload-images.jianshu.io/upload_images/13747484-80cdf30a5fcaed8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+```
 
 #### 使用说明
-
 1.  将2中的代码放进项目的php文件内，可在控制台执行都行;
 
-2.  项目需要导入一份配置文件
-<pre name="code" class="php">
+2.  运行代码需要导入配置文件 run_base.php
+
     $info = require "config/database.php";
     $run = new Run($info);
     $res = $run->generate();//返回 true|false
-</pre>
+
 
 3.配置文件 database.php
- <pre name="code" class="php">
         /*
          * @Author: lpc
          * @DateTime: 2020/9/5 18:16
@@ -56,11 +60,9 @@
                 'varchar' => 'varchar',
             ]
         ];
-    </pre>
   
  4.上面配置文件的表文件格式，table_path1/user.php
-  table_path1文件路径要放在根目录或者代码能访问到的地方
- <pre name="code" class="php">
+     table_path1文件路径要放在根目录或者代码能访问到的地方
     /*
      * @Author: lpc
      * @DateTime: 2020/9/5 19:02
@@ -124,7 +126,5 @@
     
     ];
 
- </pre>
- 
  5 .配置完以上文件，就是直接运行$run->generate();了，就这样。
 
