@@ -1,8 +1,11 @@
 # generate-mysql-schema
 
 #### 介绍
-2020/9/5：找了一圈没找到用PHP来控制数据库表结构的包，自己尝试写写吧
+2020/9/5：
+每次写些自己的东西时候总是遇到表要加新字段，然后就很麻烦要本地改完后再去自己服务器整一遍。
+找了一圈没找到用PHP来控制数据库表结构的包，自己尝试写写吧。
 一个php文件代表一张表，运行时没有表则直接新增，存在的话则更新表结构(我没有判断字段是否改动更新，都是直接全部更新)。
+有人用的话，同时又闲的话可以把我这烂代码改改，哈哈哈~
 
 #### 软件架构
 今天天气真好~
@@ -11,6 +14,7 @@
 #### 安装教程
 
 1. 项目里运行: composer require lpc/generate-mysql-schema dev-master
+2. git地址：[https://gitee.com/lpccc/generate-mysql-schema]
 
 
 #### 使用说明
@@ -55,6 +59,7 @@
     </pre>
   
  4.上面配置文件的表文件格式，table_path1/user.php
+  table_path1文件路径要放在根目录或者代码能访问到的地方
  <pre name="code" class="php">
     /*
      * @Author: lpc
