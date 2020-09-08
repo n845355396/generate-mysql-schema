@@ -66,7 +66,7 @@ class Run
                 $fieldSql    = $this->fieldInfo($field, $info, $tableArr, true);
                 $addFieldSql .= " $fieldSql";
                 $res         = $this->conn->query($addFieldSql);
-                if ($res !== 1) {
+                if (!$res) {
                     throw new \LogicException("{$tableName}表下新增字段{$field}失败！:" . $this->conn->error);
                 }
             }
