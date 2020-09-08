@@ -27,10 +27,18 @@
 1.  将2中的代码放进项目的php文件内，可在控制台执行都行;
 
 2.  运行代码需要导入配置文件 run_base.php
-
     $info = require "config/database.php";
-    $run = new Run($info);
-    $res = $run->generate();//返回 true|false
+    $paramArr = getopt('t:');
+    $tableName = $paramArr['t'];
+    $lpc = new Run($info,$tableName);
+    echo "<pre>";
+    var_dump($lpc->generate());//返回 true|false
+    exit;
+
+    控制台输入：
+    php  run_base.php //全部表检查更新
+    php  run_base.php -t user  //检查更新指定表
+    php  run_base.php -t user,user1 //检查更新指定多个表
 
 
 3.配置文件 database.php
