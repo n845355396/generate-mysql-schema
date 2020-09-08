@@ -29,7 +29,7 @@
 2.  运行代码需要导入配置文件 run_base.php
     $info = require "config/database.php";
     $paramArr = getopt('t:');
-    $tableName = $paramArr['t'];
+    $tableName = isset($paramArr['t'])?$paramArr['t']:null;
     $lpc = new Run($info,$tableName);
     echo "<pre>";
     var_dump($lpc->generate());//返回 true|false
