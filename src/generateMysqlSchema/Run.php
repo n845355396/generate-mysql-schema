@@ -9,12 +9,12 @@ class Run
     private $dataBase;//数据库操作对象
     private $tableName = null;
 
-    public function __construct($info)
+    public function __construct($info, $tableName = null)
     {
-        $this->info     = $info;
-        $this->tableName = explode(",", $tableName);;
-        $this->dataBase = new DataBase($this->info);
-        $this->conn     = $this->dataBase->getConnection();
+        $this->info      = $info;
+        $this->tableName = $tableName == null ? null : explode(",", $tableName);
+        $this->dataBase  = new DataBase($this->info);
+        $this->conn      = $this->dataBase->getConnection();
     }
 
 
@@ -30,10 +30,10 @@ class Run
                 $tableArr = $this->requireFile($file_path);
 
                 $tableName = $tableArr['table_name'];
-                if ($this->tableName != null && !in_array($tableName,$this->tableName)) {
+                if ($this->tableName != null && !in_array($tableName, $this->tableName)) {
                     continue;
                 }
-                $hasTable  = $this->conn->query("SHOW TABLES LIKE '{$tableName}'");
+                $hasTable = $this->conn->query("SHOW TABLES LIKE '{$tableName}'");
                 if ($hasTable->num_rows != 0) {
                     $this->upTableFields($tableArr);
                     echo "table:$tableName---->update OK\n";
