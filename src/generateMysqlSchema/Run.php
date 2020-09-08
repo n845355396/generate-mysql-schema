@@ -31,11 +31,13 @@ class Run
                 $hasTable  = $this->conn->query("SHOW TABLES LIKE '{$tableName}'");
                 if ($hasTable->num_rows != 0) {
                     $this->upTableFields($tableArr);
+                    echo "table:$tableName---->update OK\n";
                 } else {
                     $res = $this->assemblySql($tableArr);
                     if ($res !== true) {
                         throw new \LogicException($res . ":" . $this->conn->error);
                     }
+                    echo "table:$tableName---->add OK\n";
                 }
             }
         }
